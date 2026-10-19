@@ -1,3 +1,31 @@
+<?php 
+// Importando a classe
+require_once "src/Filme.php";
+
+// Criando um OBJETO ou uma INSTÂNCIA a partir da classe Filme
+$filme1 = new Filme();
+
+// Atribuir valores às propriedades do objeto
+$filme1->titulo = "De volta para o Futuro";
+$filme1->ano = 1984;
+$filme1->genero = "Ficção Científica";
+
+$filme2 = new Filme();
+$filme2->titulo = "Toy Story";
+$filme2->ano = 1995;
+$filme2->genero = "Animação";
+
+$filme3 = new Filme();
+$filme3->titulo = "O Auto da Compadecida";
+$filme3->genero = "Comédia";
+$filme3->ano = 2000;
+
+// echo "<pre>";
+// var_dump($filme1, $filme2, $filme3);
+// echo "</pre>";
+
+$filmes = [$filme1, $filme2, $filme3];
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -18,9 +46,18 @@
 
         <div class="filmes">
 
-            <article>
+        <?php foreach($filmes as $filme): ?>
+            <article class="card-filme">
+                <span class="genero"> <?= $filme->genero ?> </span>
+                <h2> <?= $filme->titulo ?> </h2>
+                <p class="ano">Lançamento: <?= $filme->ano ?> </p>
+
+                <?php if( $filme->ehClassico() ): ?>
+                    <span class="classico">Clássico</span>
+                <?php endif; ?>
 
             </article>
+        <?php endforeach; ?>
 
         </div>
 
@@ -29,7 +66,10 @@
         <div class="assuntos-estudados">
             <h2>Assuntos estudados</h2>
             <ul>
-
+                <li>Classes e Objetos</li>
+                <li>Propriedades e métodos</li>
+                <li>Tipos de dados</li>
+                <li>Uso do <b><code>$this</code></b> para acessar recursos de dentro da própria classe</li>
             </ul>
         </div>
 
