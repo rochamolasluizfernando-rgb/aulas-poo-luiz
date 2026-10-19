@@ -44,6 +44,8 @@ class Filme
 
     public function setAno(int $ano): void
     {
-        $this->ano = $ano;
+        if($ano){
+            $this->ano = $ano;
+        }
     }
 }
