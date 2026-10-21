@@ -1,7 +1,7 @@
-<?php 
+<?php
 // src/Conteudo.php
 
-class Conteudo 
+class Conteudo
 {
     private string $titulo;
     private string $genero;
@@ -19,8 +19,7 @@ class Conteudo
         return $this->ano < 2000;
     }
 
-    /* Métodos getters: permitem ACESSO/LEITURA (ler dados) */
-    /* Getters só retornam os dados de cada propriedade. */
+    // Getters
     public function getTitulo(): string
     {
         return $this->titulo;
@@ -35,10 +34,8 @@ class Conteudo
     {
         return $this->ano;
     }
-    
-    /* Métodos setters: permitem ACESSO/ESCRITA (colocar dados) */
-    /* Setters recebem através de parâmetros os dados a serem
-    colocados nas propriedades. */
+
+    // Setters
     public function setTitulo(string $titulo): void
     {
         $this->titulo = $titulo;
@@ -51,8 +48,8 @@ class Conteudo
 
     public function setAno(int $ano): void
     {
-        if($ano > 0){
+        if ($ano > 0) {
             $this->ano = $ano;
         }
-    
+    }
 }
