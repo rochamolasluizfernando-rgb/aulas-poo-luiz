@@ -1,20 +1,19 @@
-<?php 
+<?php
 // Importando a superclasse/pai: Conteudo 
 require_once "src/Conteudo.php";
 
 // Importando a subclasse/filha: Filme (que herda de Conteudo)
 require_once "src/Filme.php";
+require_once "src/Serie.php";
 
-// Utilizando os setters para colocar dados em cada objeto
-$filme1 = new Filme ('De volta para o Futuro', 'Ficção', 1985, 116);
-$filme2 = new Filme('Toy Story', 'Animação', 1995, 105);
-$filme3 = new Filme('Homem Aranha', 'Ação', 2026, 145);
+$serie1 = new Serie("Breaking Bad", "Drama", 2008, 5);
+$serie2 = new Serie("Brooklyn Nine-Nine", "Comédia", 2013, 8);
 
-// echo "<pre>";
-// var_dump($filme1, $filme2, $filme3);
-// echo "</pre>";
+$series = [$serie1, $serie2];
 
-$filmes = [$filme1, $filme2, $filme3];
+var_dump($serie1);
+echo "<br><br>";
+var_dump($serie2);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,27 +35,53 @@ $filmes = [$filme1, $filme2, $filme3];
 
         <div class="filmes">
 
-        <?php foreach($filmes as $filme): ?>
-            <article class="card-filme">
-                <span class="genero"> <?= $filme->getGenero() ?> </span>
-                <h2> <?= $filme->getTitulo() ?> </h2>
-                <p class="ano">Lançamento: <?= $filme->getAno() ?> </p>
+            <?php foreach ($series as $serie): ?>
+                <article class="card-filme">
+                    <span class="genero">
+                        <?= $serie->getGenero() ?>
+                    </span>
 
-                <?php if( $filme->ehClassico() ): ?>
-                    <span class="classico">Clássico</span>
-                <?php endif; ?>
+                    <h2>
+                        <?= $serie->getTitulo() ?>
+                    </h2>
 
-            </article>
-        <?php endforeach; ?>
+                    <p class="ano">
+                        Lançamento: <?= $serie->getAno() ?>
+                    </p>
 
+                    <p>
+                        Temporadas: <?= $serie->getTemporadas() ?>
+                    </p>
+
+                    <?php if ($serie->ehClassico()): ?>
+                        <span class="classico">Clássico</span>
+                    <?php endif; ?>
+
+                </article>
+            <?php endforeach; ?>
         </div>
 
         <hr>
 
+        <div class="series">
+            <?php foreach($series as $serie): ?>
+                <article class="card-serie">
+                    <span class="genero"> <?= $serie->getGenero() ?> </span>
+                    <h2> <?= $serie->getTitulo() ?> </h2>
+                    <p class="ano">Lançamento: <?= $serie->getAno() ?> </p>
+                    
+                    <?php if($serie->ehClassico()): ?>
+                        <span class="classico">Clássico</span>
+                    <?php endif; ?>
+                </article>
+            <?php endforeach; ?>
+        </div>
+
+        
         <div class="assuntos-estudados">
             <h2>Assuntos estudados</h2>
             <ul>
-                
+                    
             </ul>
         </div>
 
