@@ -19,6 +19,8 @@ $series = [$serie1, $serie2];
 // var_dump($serie1);
 // echo "<br><br>";
 // var_dump($serie2);
+
+$conteudo = new Conteudo('Senhor dos anéis', 'Fantasia', 2001)
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
