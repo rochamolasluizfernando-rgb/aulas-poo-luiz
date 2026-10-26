@@ -6,21 +6,22 @@ require_once "src/Conteudo.php";
 require_once "src/Filme.php";
 require_once "src/Serie.php";
 
-$filme1 = new Filme('De Volta para o Futuro', 'Ficcão', 1985, 116);
+$filme1 = new Filme('De Volta para o Futuro', 'Ficção', 1985, 116);
 $filme2 = new Filme('Toy Story', 'Animação', 1995, 105);
 $filme3 = new Filme('Homem Aranha', 'Ação', 2026, 145);
 
 $serie1 = new Serie("Breaking Bad", "Drama", 2008, 5);
 $serie2 = new Serie("Brooklyn Nine-Nine", "Comédia", 2013, 8);
 
-$filmes = [$filme1, $filme2, $filme3];
 $series = [$serie1, $serie2];
 
-// var_dump($serie1);
-// echo "<br><br>";
-// var_dump($serie2);
+$filmes = [$filme1, $filme2, $filme3]
 
-$conteudo = new Conteudo('Senhor dos anéis', 'Fantasia', 2001)
+/* Como a classe Conteudo foi definida como abstrata, a linha abaixo
+não funcionará pois não é possível criar objetos/instâncias diretamente
+à partir de classes abstratas. */
+//$conteudo = new Conteudo('Senhor dos anéis', 'Fantasia', 2001);
+//var_dump($conteudo);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -85,7 +86,7 @@ $conteudo = new Conteudo('Senhor dos anéis', 'Fantasia', 2001)
                 <li>Herança com propriedades e métodos</li>
                 <li>Visibilidade <b>protected</b> na superclasse permitindo o acesso através 
                 das subclasses.</li>
-                <li>Construtor da superclasse através de <b>parent__</b></li>
+                <li>Construtor da superclasse através de <b>parent::__construct()</b></li>
             </ul>
         </div>
 
