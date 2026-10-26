@@ -35,22 +35,19 @@ h1 {
     line-height: 1.2;
 }
 
-/* Filmes e Séries com o mesmo layout */
-.filmes,
-.series {
+.conteudos {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-.card-filme,
-.card-serie {
+.card-conteudo {
     padding: 28px;
     background-color: #fff;
     border: 1px solid #dfe3ee;
-    border-top: 4px solid #014cee;
+    border-top: 4px solid #6554c0;
     border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(36, 48, 71, 0.04);
+    box-shadow: 0 6px 20px #2430470a;
 }
 
 .genero {
@@ -64,7 +61,7 @@ h1 {
 
 h2 {
     margin: 20px 0 12px;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     line-height: 1.3;
 }
 
@@ -100,19 +97,13 @@ hr {
 }
 
 @media (min-width: 800px) {
-    .filmes,
-    .series {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
+    .conteudos {
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
-    .series {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .card-filme,
-    .card-serie {
+    .card-conteudo {
+        flex: 1 1 calc(50% - 12px);
         min-width: 0;
     }
 
