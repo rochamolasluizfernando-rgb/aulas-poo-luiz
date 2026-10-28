@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notificações da loja virtual</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -15,9 +17,9 @@
         </header>
 
         <div class="conteudos">
-                <article class="card-conteudo">
-                   
-                </article>
+            <article class="card-conteudo">
+
+            </article>
         </div>
 
         <hr>
@@ -25,7 +27,12 @@
         <div class="assuntos-estudados">
             <h2>Assuntos estudados</h2>
             <ul>
-                
+                <li>Classes e Objetos</li>
+                <li>Herança</li>
+                <li>Polimorfismo</li>
+                <li>Classes Abstratas</li>
+                <li>Métodos sobrescritos</li>
+                <li>Encapsulamento</li>
             </ul>
         </div>
 
