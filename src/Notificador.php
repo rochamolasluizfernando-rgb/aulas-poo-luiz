@@ -8,7 +8,7 @@ Usamos a Interface para garantir que todas as classes que a utilizem,
 sigam um mesmo padrão definido nos métodos. Ainda assim, cada classe poderá
 ter uma implementação diferente no corpo do método (polimorfismo). */
 
-class Email implements Notificador
+interface Notificador
 {
     /* O padrão definido aqui é: nome, parâmetros, tipo de dados 
     dos parâmetro e tipo de retorno do método  */
