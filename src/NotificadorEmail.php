@@ -1,5 +1,5 @@
 <?php
-class NotificadorEmailEmail implements Notificador
+class NotificadorEmail implements Notificador
 {
     /* Implementação do método enviar de acordo com os padrões 
     definidos na Interface: mesmo nome, mesma quantidade de parÂmetros, 
