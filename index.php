@@ -1,10 +1,20 @@
 <?php
+require_once "src/StatusPedido.php";
+require_once "src/Pedido.php";
+
 require_once "src/Notificador.php";
 require_once "src/NotificadorEmail.php";
 
 // Criando os objetos
 $notificadorPorEmail = new NotificadorEmail();
 
+/* Repare no terceiro parâmetro: é OBRIGATÓRIO usar uma das opções definidas na Enum. */
+$pedido1 = new Pedido(1001, "Fulano da Silva", StatusPedido::Pendente);
+$pedido2 = new Pedido(1002, "Beltrano Souza", StatusPedido::Pendente);
+$pedido3 = new Pedido(1003, "José da Silva", StatusPedido::AguardandoPagamento);
+$pedido4 = new Pedido(1004, "Mônica Santos", StatusPedido::SaiuParaEnrega);
+
+$pedidos = [$pedido1, $pedido2, $pedido3, $pedido4];
 ?>
 
 <!DOCTYPE html>
@@ -27,17 +37,23 @@ $notificadorPorEmail = new NotificadorEmail();
         </header>
 
         <div class="conteudos">
-            <article class="card-conteudo">
-                
-            </article>
+            <?php foreach($pedidos as $pedido): ?>
+                <article class="card-conteudo">
+                    <h2>Pedido<?= $pedido->getNumero() ?></h2>
+                    <p>Cliente: <?= $pedido->getCliente() ?></p>
+                    <p>Status:
+                        <b class="destaque"><?= $pedido->getStatus()->value ?></b>
+                    </p>
+                <?php 
+                $mensagem = 'Seu pedido #' .$pedido->getNumero().' está com o status: '.
+                $pedido->getStatus()->value;
+                ?>
+                    <p><small><?= $notificadorPorEmail->enviar($mensagem) ?></small></p>
+                </article>
+            <?php endforeach; ?>
         </div>
 
         <hr>
-
-        <section class="card-conteudo">
-            <h2>Resumo/Total dos envios de notificações</h2>
-            <p>E-mails enviados: <b> <?= NotificadorEmail::getQuantidadeEnviada() ?> </b> </p>
-        </section>
 
         <div class="assuntos-estudados">
             <h2>Assuntos estudados</h2>
