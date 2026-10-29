@@ -7,7 +7,6 @@ require_once "src/NotificadorSMS.php";
 $notificadorPorEmail = new NotificadorEmail();
 $notificadorPorSMS = new NotificadorSMS();
 
-$notificadores = [$notificadorPorEmail, $notificadorPorSMS];
 ?>
 
 <!DOCTYPE html>
@@ -23,24 +22,15 @@ $notificadores = [$notificadorPorEmail, $notificadorPorSMS];
 <body>
     <div class="container">
         <header>
-            <p class="destaque">Uma sessão de boas histórias</p>
+            <p class="destaque">Loja virtual</p>
             <h1>Notificações da loja virtual</h1>
             <p>Simulação de notificações sobre pedidos por e-mail e SMS</p>
         </header>
 
         <div class="conteudos">
-
-            <?php
-            $conteudoDaMensagem = "Seu pedido '123 abc' foi confirmado!";
-
-            foreach ($notificadores as $notificador):
-            ?>
-                <article class="card-conteudo">
-                    <h2>Notificação sobre o pedido:</h2>
-                    <p><?= $notificador->enviar($conteudoDaMensagem) ?></p>
-                </article>
-            <?php endforeach; ?>
-
+            <article class="card-conteudo">
+                    
+            </article>
         </div>
 
         <hr>
@@ -48,13 +38,7 @@ $notificadores = [$notificadorPorEmail, $notificadorPorSMS];
         <div class="assuntos-estudados">
             <h2>Assuntos estudados</h2>
             <ul>
-                <li>Interface <b>Notificador</b> como um contrato de comportamentos (métodos)</li>
-                <li>Definição do método <b>enviar(string $mensagem): string</b>na interface</li>
-                <li>Aplicação da interface com <b>implements</b> nas classes <b>NotificadorEmail
-                </b> e <b>NotificadorSMS</b></li>
-                <li>Implementação do método <b>enviar</b> em cada classe</li>
-                <li>Polimorfismo: a mesma chamada a <b>enviar</b> utiliza a implementação de cada 
-                classe.</li>
+                
             </ul>
         </div>
 
