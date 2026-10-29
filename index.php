@@ -7,6 +7,23 @@ require_once "src/NotificadorSMS.php";
 $notificadorPorEmail = new NotificadorEmail();
 $notificadorPorSMS = new NotificadorSMS();
 
+// Pedido 123abc
+$emailPedido1 = $notificadorPorEmail->enviar("Seu pedido 123abc foi confirmado!");
+$smsPedido1 = $notificadorPorSMS->enviar("Seu pedido foi confirmado!");
+
+// Pedido 789xyz
+$emailPedido2 = $notificadorPorEmail->enviar("Seu pedido 789xyz foi confirmado!");
+
+// Pedido 456asd
+$emailPedido3 = $notificadorPorEmail->enviar("Seu pedido 456asd foi confirmado!");
+
+/* ************ */
+$notificadorPorEmailTeste2 = new NotificadorEmail();
+$notificadorEmailTeste3 = new NotificadorEmail();
+
+$notificadorPorEmailTeste2->enviar("Pedidos entregues!");
+$notificadorEmailTeste3->enviar("Pedidos à espera de avaliação");
+
 ?>
 
 <!DOCTYPE html>
@@ -29,16 +46,38 @@ $notificadorPorSMS = new NotificadorSMS();
 
         <div class="conteudos">
             <article class="card-conteudo">
-                    
+                <h2>Notificação: Pedido 123abc</h2>
+                <p><?= $emailPedido1 ?></p>
+                <p><?= $smsPedido1 ?></p>
+            </article>
+
+            <article class="card-conteudo">
+                <h2>Notificação: Pedido 789xyz</h2>
+                <p> <?= $emailPedido2 ?> </p>
+            </article>
+
+            <article class="card-conteudo">
+                <h2>Notificação: Pedido 456asd</h2>
+                <p> <?= $emailPedido3 ?> </p>
             </article>
         </div>
 
         <hr>
 
+        <section class="card-conteudo">
+            <h2>Resumo/Total dos envios de notificações</h2>
+            <p>E-mails enviados: <b> <?= NotificadorEmail::getQuantidadeEnviada() ?> </b> </p>
+            <p>SMS enviados: <b> <?= NotificadorSMS::getQuantidadeEnviada() ?> </b> </p>
+        </section>
+
         <div class="assuntos-estudados">
             <h2>Assuntos estudados</h2>
             <ul>
-                
+                <li>propriedades estáticas usando <b>static</b></li>
+                <li>Métodos estáticos usando <b>static</b></li>
+                <li>Acesso a recursos estáticos com <b>::</b></li>
+                <li>Acesso a recursos estáticos da própria classe usando <b>self</b></li>
+                <li>Diferença entre usar recursos estáticos de classe e recursos de objeto</li>
             </ul>
         </div>
 
